@@ -3,11 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
-	"google.golang.org/grpc"
 	"greet/greetpb"
 	"io"
 	"log"
 	"time"
+
+	"google.golang.org/grpc"
 )
 
 func main() {
@@ -29,8 +30,8 @@ func doUnary(c greetpb.GreetServiceClient) {
 	fmt.Println("Hello i am going to call RPC Unary")
 	req := &greetpb.GreetRequest{
 		Greeting: &greetpb.Greeting{
-			FirstName: "Somendra",
-			LastName:  "Sharma",
+			FirstName: "Simple",
+			LastName:  "Sa",
 		},
 	}
 	res, err := c.Greet(context.Background(), req)
@@ -73,38 +74,38 @@ func doClientStreaming(c greetpb.GreetServiceClient) {
 	requests := []*greetpb.LongGreetRequest{
 		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
-				FirstName: "Somendra",
-				LastName:  "Sharma",
+				FirstName: "Jk",
+				LastName:  "Jim",
 			},
 		},
 		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
-				FirstName: "Abhilasha",
-				LastName:  "Kandwal",
+				FirstName: "LK",
+				LastName:  "Lim",
 			},
 		},
 		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
-				FirstName: "Ahaan",
-				LastName:  "Sharma",
+				FirstName: "Ja",
+				LastName:  "Jai",
 			},
 		},
 		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
-				FirstName: "Samaira",
-				LastName:  "Sharma",
+				FirstName: "Ri",
+				LastName:  "Rin",
 			},
 		},
 		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
-				FirstName: "Bharat",
-				LastName:  "Sharma",
+				FirstName: "Fi",
+				LastName:  "Fin",
 			},
 		},
 		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
-				FirstName: "Vijay",
-				LastName:  "Sharma",
+				FirstName: "Vi",
+				LastName:  "Vin",
 			},
 		},
 	}
@@ -139,67 +140,30 @@ func doBiDirStreaming(c greetpb.GreetServiceClient) {
 	requests := []*greetpb.GreetEveryOneRequest{
 		&greetpb.GreetEveryOneRequest{
 			Greeting: &greetpb.Greeting{
-				FirstName: "Somendra",
-				LastName:  "Sharma",
+				FirstName: "Ri",
+				LastName:  "Rin",
 			},
 		},
 		&greetpb.GreetEveryOneRequest{
 			Greeting: &greetpb.Greeting{
-				FirstName: "Samaira",
-				LastName:  "Sharma",
+				FirstName: "Ji",
+				LastName:  "Jin",
 			},
 		},
 		&greetpb.GreetEveryOneRequest{
 			Greeting: &greetpb.Greeting{
-				FirstName: "Abhilasha",
-				LastName:  "Kandwal",
+				FirstName: "Ui",
+				LastName:  "Uin",
 			},
 		},
 		&greetpb.GreetEveryOneRequest{
 			Greeting: &greetpb.Greeting{
-				FirstName: "Ahaan",
-				LastName:  "Sharma",
+				FirstName: "Ti",
+				LastName:  "Tin",
 			},
 		},
 	}
-	// requests := []*greetpb.GreetEveryOneRequest{
-	// 	&greetpb.GreetEveryOneRequest{
-	// 		Greeting: &greetpb.Greeting{
-	// 			FirstName: "Somendra",
-	// 			LastName:  "Sharma",
-	// 		},
-	// 	},
-	// 	&greetpb.GreetEveryoneRequest{
-	// 		Greeting: &greetpb.Greeting{
-	// 			FirstName: "Abhilasha",
-	// 			LastName:  "Kandwal",
-	// 		},
-	// 	},
-	// 	&greetpb.GreetEveryoneRequest{
-	// 		Greeting: &greetpb.Greeting{
-	// 			FirstName: "Ahaan",
-	// 			LastName:  "Sharma",
-	// 		},
-	// 	},
-	// 	&greetpb.GreetEveryoneRequest{
-	// 		Greeting: &greetpb.Greeting{
-	// 			FirstName: "Samaira",
-	// 			LastName:  "Sharma",
-	// 		},
-	// 	},
-	// 	&greetpb.GreetEveryoneRequest{
-	// 		Greeting: &greetpb.Greeting{
-	// 			FirstName: "Bharat",
-	// 			LastName:  "Sharma",
-	// 		},
-	// 	},
-	// 	&greetpb.GreetEveryoneRequest{
-	// 		Greeting: &greetpb.Greeting{
-	// 			FirstName: "Vijay",
-	// 			LastName:  "Sharma",
-	// 		},
-	// 	},
-	// }
+
 	waitc := make(chan struct{})
 	// we send a bunch of messages to the client (go routine)
 	go func() {
